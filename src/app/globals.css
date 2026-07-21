@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/*
+ * Tailwind v4: дизайн-токены объявляются прямо в CSS через @theme.
+ * Каждая переменная --color-XXX автоматически создаёт классы:
+ * bg-XXX, text-XXX, border-XXX и т.д.
+ * Это та же палитра, что была в старом styles.css (:root { --ink: ... }).
+ */
+@theme {
+  --color-ink: #171513;
+  --color-soft-ink: #403a34;
+  --color-muted: #746a60;
+  --color-paper: #fffaf1;
+  --color-cream: #f4eadb;
+  --color-ivory: #fffdf8;
+  --color-olive: #5f714d;
+  --color-wine: #8e3d34;
+  --color-gold: #c9932e;
+
+  /* Шрифты подключаются в layout.tsx через next/font и попадают сюда как переменные */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+}
+
+/* Плавная прокрутка к якорям (#menu, #kontakt и т.д.) */
+html {
+  scroll-behavior: smooth;
+}
+
+/*
+ * Лёгкие CSS-анимации (модальное окно, бургер-меню, подсказки).
+ * Анимируются только opacity и transform — эти свойства обрабатывает
+ * видеокарта, поэтому система не нагружается.
+ */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Мигание подсказки у бургер-меню */
+@keyframes hint-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.anim-fade {
+  animation: fade-in 0.25s ease-out both;
+}
+
+.anim-rise {
+  animation: rise-in 0.35s ease-out both;
+}
+
+/* 4 повтора по 1 секунде = ровно 4 секунды мигания, дальше элемент убирает JS */
+.anim-blink {
+  animation: hint-blink 1s ease-in-out 4 both;
+}
+
+/* Уважаем настройку ОС «уменьшить движение» — анимации отключаются */
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade,
+  .anim-rise,
+  .anim-blink {
+    animation: none;
+  }
+}

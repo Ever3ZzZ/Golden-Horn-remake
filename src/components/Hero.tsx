@@ -2,12 +2,11 @@ import Image from "next/image";
 import ReserveButton from "@/components/ReserveButton";
 
 /** Короткие факты под кнопками (часы работы и т.д.) */
-const HERO_FACTS: ReadonlyArray<{ label: string; value: string }> = [
-  { label: "Heute", value: "10:00 - 22:00 Uhr" },
+const HERO_FACTS: ReadonlyArray<{ label: string; value: string; description?: string }> = [
+  { label: "Heute", value: "09:00 - 22:00 Uhr" },
   { label: "Montag", value: "Ruhetag" },
-  { label: "Abholung", value: "11:30 - 22:00 Uhr" },
-  { label: "Frühstückszeiten", value: "10:00 - 14:00 Uhr" },
-  { label:  "Frühstückszehiten", value: "Dienstag bis Freitag" },
+  { label: "Abholung (Außer Montags)", value: "11:30 - 22:00 Uhr" },
+  { label: "Frühstückszeiten", value: "10:00 - 14:00 Uhr", description: "Dienstag bis Freitag" },
 ];
 
 /**
@@ -80,6 +79,9 @@ export default function Hero() {
               className="rounded-full bg-paper/10 px-4 py-2 text-paper/85 backdrop-blur-sm"
             >
               <b className="text-paper">{fact.label}</b> {fact.value}
+              {fact.description && (
+                <span className="ml-1 text-paper/70">({fact.description})</span>
+              )}
             </span>
           ))}
         </div>

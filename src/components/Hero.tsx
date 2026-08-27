@@ -6,6 +6,8 @@ const HERO_FACTS: ReadonlyArray<{ label: string; value: string }> = [
   { label: "Heute", value: "10:00 - 22:00 Uhr" },
   { label: "Montag", value: "Ruhetag" },
   { label: "Abholung", value: "11:30 - 22:00 Uhr" },
+  { label: "Frühstückszeiten", value: "10:00 - 14:00 Uhr" },
+  { label:  "Frühstückszehiten", value: "Dienstag bis Freitag" },
 ];
 
 /**

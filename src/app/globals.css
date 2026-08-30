@@ -52,6 +52,17 @@ html {
   }
 }
 
+@keyframes soft-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* Мигание подсказки у бургер-меню */
 @keyframes hint-blink {
   0%,
@@ -71,6 +82,10 @@ html {
   animation: rise-in 0.35s ease-out both;
 }
 
+.anim-soft-rise {
+  animation: soft-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 /* 4 повтора по 1 секунде = ровно 4 секунды мигания, дальше элемент убирает JS */
 .anim-blink {
   animation: hint-blink 1s ease-in-out 4 both;
@@ -80,6 +95,7 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .anim-fade,
   .anim-rise,
+  .anim-soft-rise,
   .anim-blink {
     animation: none;
   }

@@ -15,19 +15,19 @@ const FAVORITES: FavoriteItem[] = [
     image: "Golden-Horn-Salat.png",
     name: "Golden Horn Salat",
     description: "Tabouleh, Hummus, Blattsalat, Granatapfel",
-    price: "11,90 €",
+    price: "12,40 €",
   },
   {
     image: "Goldenhorn-Jumbo-Burger.png",
     name: "Goldenhorn Jumbo Burger",
     description: "360 g Patty, Zwiebeln, doppelter Cheddar",
-    price: "16,50 €",
+    price: "18,50€",
   },
   {
     image: "Linguine-al-Lachs-mit-Spinat.jpg",
     name: "Linguine al Lachs",
     description: "Linguine, Lachs, Spinat, Pesto, Parmesan",
-    price: "14,90 €",
+    price: "16,00 €",
   },
 ];
 

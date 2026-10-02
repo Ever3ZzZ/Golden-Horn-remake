@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { ReservationProvider } from "@/components/ReservationContext";
+import OfferBanner from "@/components/OfferBanner";
 import ReservationModal from "@/components/ReservationModal";
 
 /**
@@ -49,6 +50,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <OfferBanner />
           <ReservationModal />
         </ReservationProvider>
       </body>
